@@ -3,47 +3,64 @@
     <modelVersion>4.0.0</modelVersion>
  
     <groupId>com.waylau</groupId>
-	<artifactId>activemq-spring</artifactId>
+	<artifactId>activemq-demo</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.0</version>
-	<name>activemq-spring</name>
- 
-    <properties>
-        <springframework.version>4.3.2.RELEASE</springframework.version>
-    </properties>
+	<name>activemq-demo</name>
  
     <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${springframework.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${springframework.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jms</artifactId>
-            <version>${springframework.version}</version>
-        </dependency>
+    
+   		<!-- https://mvnrepository.com/artifact/javax.jms/javax.jms-api -->
 		<dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${springframework.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-spring</artifactId>
-            <version>5.13.4</version>
-        </dependency>
+		    <groupId>javax.jms</groupId>
+		    <artifactId>javax.jms-api</artifactId>
+		    <version>2.0.1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-core -->
+		<dependency>
+		    <groupId>org.apache.activemq</groupId>
+		    <artifactId>activemq-core</artifactId>
+		    <version>5.7.0</version>
+		</dependency>
+    
+		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-broker -->
+		<dependency>
+		    <groupId>org.apache.activemq</groupId>
+		    <artifactId>activemq-broker</artifactId>
+		    <version>5.13.4</version>
+		</dependency>
+
 		<dependency>  
             <groupId>junit</groupId>  
             <artifactId>junit</artifactId>  
             <version>4.12</version>  
             <scope>test</scope>  
         </dependency> 
+         
+ 
+ 
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-core</artifactId>
+		    <version>2.6.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-api</artifactId>
+		    <version>2.6.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-slf4j-impl</artifactId>
+		    <version>2.6.2</version>
+		</dependency>
+
+        
     </dependencies>
  
     <build>
