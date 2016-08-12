@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
  
     <groupId>com.waylau</groupId>
-	<artifactId>activemq-demo</artifactId>
+	<artifactId>rabbitmq-demo</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.0</version>
-	<name>activemq-demo</name>
+	<name>rabbitmq-demo</name>
  
     <dependencies>
     
@@ -17,19 +17,13 @@
 		    <version>2.0.1</version>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-core -->
+		 <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
 		<dependency>
-		    <groupId>org.apache.activemq</groupId>
-		    <artifactId>activemq-core</artifactId>
-		    <version>5.7.0</version>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>3.6.5</version>
 		</dependency>
-    
-		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-broker -->
-		<dependency>
-		    <groupId>org.apache.activemq</groupId>
-		    <artifactId>activemq-broker</artifactId>
-		    <version>5.13.4</version>
-		</dependency>
+
 
 		<dependency>  
             <groupId>junit</groupId>  
@@ -74,7 +68,8 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
-            <plugin>
+            
+             <plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
 		        <artifactId>maven-shade-plugin</artifactId>
 		        <version>2.4.3</version>
@@ -87,7 +82,7 @@
 		            <configuration>
 		              <transformers>
 		                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-		                  <mainClass>com.waylau.activemq.Producer</mainClass>
+		                  <mainClass>com.waylau.rabbitmq.Worker</mainClass>
 		                </transformer>
 		              </transformers>
 		            </configuration>
