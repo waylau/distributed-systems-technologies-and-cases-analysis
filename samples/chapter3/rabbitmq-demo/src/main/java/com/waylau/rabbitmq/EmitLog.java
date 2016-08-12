@@ -8,6 +8,12 @@ import org.slf4j.LoggerFactory;
 
 import com.rabbitmq.client.Channel;
 
+/**
+ * 日志发送程序
+ * 
+ * @author <a href="http://waylau.com">waylau.com</a>
+ * @date 2016年8月12日
+ */
 public class EmitLog {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmitLog.class);
@@ -18,11 +24,13 @@ public class EmitLog {
 		factory.setHost("localhost");
 		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
-
+		
+		// 声明交换器和类型
 		channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
 
 		String message = getMessage(argv);
 
+		// 往交换器上发送消息
 		channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes("UTF-8"));
 		LOGGER.info(" [x] Sent '" + message + "'");
 

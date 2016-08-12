@@ -1,21 +1,27 @@
 package com.waylau.rabbitmq;
 
-import com.rabbitmq.client.*;
-
 import java.io.IOException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.rabbitmq.client.AMQP;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.Consumer;
+import com.rabbitmq.client.DefaultConsumer;
+import com.rabbitmq.client.Envelope;
+
 /**
- * 日志接收程序
- * 
  * @author <a href="http://waylau.com">waylau.com</a>
- * @date 2016年8月12日
+ * @date 2016年8月13日
  */
-public class ReceiveLogs {
+public class ReceiveLogsDirect {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(ReceiveLogs.class);
-	private static final String EXCHANGE_NAME = "logs";
+	private static final Logger LOGGER = LoggerFactory.getLogger(ReceiveLogsDirect.class);
+	
+	private static final String EXCHANGE_NAME = "direct_logs";
 
 	public static void main(String[] argv) throws Exception {
 		ConnectionFactory factory = new ConnectionFactory();
@@ -23,14 +29,17 @@ public class ReceiveLogs {
 		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
 
-		channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
-		
-		// 不传递任何参数来创建一个非持久的、唯一的、动删除的队列，该队列名称由服务器随机产生。
+		channel.exchangeDeclare(EXCHANGE_NAME, "direct");
 		String queueName = channel.queueDeclare().getQueue();
-		
-		// 为交换器指定队列，设置 binding
-		channel.queueBind(queueName, EXCHANGE_NAME, "");
 
+		if (argv.length < 1) {
+			LOGGER.error("Usage: ReceiveLogsDirect [info] [warning] [error]");
+			System.exit(1);
+		}
+
+		for (String severity : argv) {
+			channel.queueBind(queueName, EXCHANGE_NAME, severity);
+		}
 		LOGGER.info(" [*] Waiting for messages. To exit press CTRL+C");
 
 		Consumer consumer = new DefaultConsumer(channel) {
@@ -38,7 +47,7 @@ public class ReceiveLogs {
 			public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties,
 					byte[] body) throws IOException {
 				String message = new String(body, "UTF-8");
-				LOGGER.info(" [x] Received '" + message + "'");
+				LOGGER.info(" [x] Received '" + envelope.getRoutingKey() + "':'" + message + "'");
 			}
 		};
 		channel.basicConsume(queueName, true, consumer);
