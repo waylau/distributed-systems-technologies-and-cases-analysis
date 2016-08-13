@@ -8,6 +8,8 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 /**
+ * 日志发送程序
+ * 
  * @author <a href="http://waylau.com">waylau.com</a>
  * @date 2016年8月13日
  */
@@ -28,6 +30,7 @@ public class EmitLogDirect {
 		String severity = getSeverity(argv);
 		String message = getMessage(argv);
 
+		// 为简化程序，这里 的 severity 是 inof、warning、error 中的一个
 		channel.basicPublish(EXCHANGE_NAME, severity, null, message.getBytes("UTF-8"));
 		LOGGER.info(" [x] Sent '" + severity + "':'" + message + "'");
 

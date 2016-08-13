@@ -1,29 +1,22 @@
 package com.waylau.rabbitmq;
 
+import com.rabbitmq.client.*;
+
 import java.io.IOException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
-
 /**
  * 日志接收程序
  * 
- * @author <a href="http://waylau.com">waylau.com</a>
+ * @author <a href="http://waylau.com">Way Lau</a>
  * @date 2016年8月13日
  */
-public class ReceiveLogsDirect {
+public class ReceiveLogsTopic {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ReceiveLogsDirect.class);
-
-	private static final String EXCHANGE_NAME = "direct_logs";
+	private static final Logger LOGGER = LoggerFactory.getLogger(ReceiveLogsTopic.class);
+	private static final String EXCHANGE_NAME = "topic_logs";
 
 	public static void main(String[] argv) throws Exception {
 		ConnectionFactory factory = new ConnectionFactory();
@@ -31,17 +24,17 @@ public class ReceiveLogsDirect {
 		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
 
-		channel.exchangeDeclare(EXCHANGE_NAME, "direct");
+		// 声明一个 topic 类型的 exchange
+		channel.exchangeDeclare(EXCHANGE_NAME, "topic");
 		String queueName = channel.queueDeclare().getQueue();
 
 		if (argv.length < 1) {
-			LOGGER.error("Usage: ReceiveLogsDirect [info] [warning] [error]");
+			LOGGER.error("Usage: ReceiveLogsTopic [binding_key]...");
 			System.exit(1);
 		}
 
-		// 每一个我们感兴趣的 severity 创建一个新的绑定
-		for (String severity : argv) {
-			channel.queueBind(queueName, EXCHANGE_NAME, severity);
+		for (String bindingKey : argv) {
+			channel.queueBind(queueName, EXCHANGE_NAME, bindingKey);
 		}
 
 		LOGGER.info(" [*] Waiting for messages. To exit press CTRL+C");
