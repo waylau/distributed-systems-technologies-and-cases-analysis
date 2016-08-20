@@ -1,4 +1,4 @@
-package com.waylau.rabbitmq;
+package com.waylau.rocketmq;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

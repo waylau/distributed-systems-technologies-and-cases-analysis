@@ -1,4 +1,4 @@
-package com.waylau.rabbitmq;
+package com.waylau.rocketmq;
 
 import com.alibaba.rocketmq.client.consumer.DefaultMQPushConsumer;
 import com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
@@ -6,6 +6,7 @@ import com.alibaba.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import com.alibaba.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import com.alibaba.rocketmq.client.exception.MQClientException;
 import com.alibaba.rocketmq.common.consumer.ConsumeFromWhere;
+import com.alibaba.rocketmq.common.message.MessageConst;
 import com.alibaba.rocketmq.common.message.MessageExt;
 
 import java.util.List;
@@ -47,6 +48,18 @@ public class Consumer {
 			public ConsumeConcurrentlyStatus consumeMessage(
 					List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
 				LOGGER.info(Thread.currentThread().getName() + " Receive New Messages: " + msgs);
+				
+				/*
+				// 跳过非重要消息。当某个队列的消息数堆积到 100000 条以上，
+				// 则尝试丢弃部分或全部消息，这样就可以快速追上发送消息的速度
+				long offset = msgs.get(0).getQueueOffset(); 
+				String maxOffset = msgs.get(0).getProperty(MessageConst.PROPERTY_MAX_OFFSET); 
+				long diff = Long.parseLong(maxOffset) - offset;
+				if (diff > 100000) { 
+					// TODO 消息堆积情况的特殊处理
+					return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+				}
+				*/
 				return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
 			}
 		});
