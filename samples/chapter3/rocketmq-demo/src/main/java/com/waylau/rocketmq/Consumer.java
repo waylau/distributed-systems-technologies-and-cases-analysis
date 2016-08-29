@@ -21,13 +21,13 @@ import org.slf4j.LoggerFactory;
  * @date 2016年8月18日
  */
 public class Consumer {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(Consumer.class);
 	private static final String GROUP_NAME = "waylau_com_consumer_gorup";
 	private static final String NAME_SERVER = "10.30.22.108:9876";
-	
+
 	public static void main(String[] args) throws InterruptedException, MQClientException {
-		
+
 		// consumerGroup 必须唯一
 		DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(GROUP_NAME);
 
@@ -37,7 +37,7 @@ public class Consumer {
 
 		// 设置 name server 地址
 		consumer.setNamesrvAddr(NAME_SERVER);
-		
+
 		// 订阅 topic
 		consumer.subscribe("TopicTest", "*");
 
@@ -46,21 +46,23 @@ public class Consumer {
 
 			@Override
 			public ConsumeConcurrentlyStatus consumeMessage(
-					List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
-				LOGGER.info(Thread.currentThread().getName() + " Receive New Messages: " + msgs);
-				
-				/*
-				// 跳过非重要消息。当某个队列的消息数堆积到 100000 条以上，
-				// 则尝试丢弃部分或全部消息，这样就可以快速追上发送消息的速度
-				long offset = msgs.get(0).getQueueOffset(); 
-				String maxOffset = msgs.get(0).getProperty(MessageConst.PROPERTY_MAX_OFFSET); 
-				long diff = Long.parseLong(maxOffset) - offset;
-				if (diff > 100000) { 
-					// TODO 消息堆积情况的特殊处理
-					return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
-				}
-				*/
-				return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+		            List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
+			    LOGGER.info(Thread.currentThread().getName() 
+			    		+ " Receive New Messages: " + new String(msgs.get(0).getBody()));
+			    
+			    /*
+			    // 跳过非重要消息。当某个队列的消息数堆积到 100000 条以上，
+			    // 则尝试丢弃部分或全部消息，这样就可以快速追上发送消息的速度
+			    long offset = msgs.get(0).getQueueOffset(); 
+			    String maxOffset = msgs.get(0).getProperty(MessageConst.PROPERTY_MAX_OFFSET); 
+			    long diff = Long.parseLong(maxOffset) - offset;
+			    if (diff > 100000) { 
+	
+			        // TODO 消息堆积情况的特殊处理
+			        return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+			    }
+			    */
+			    return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
 			}
 		});
 
