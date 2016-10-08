@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>SSE 广播模式-聊天 | www.waylau.com</title>
+</head>
+<body>
+<h2>Jersey RESTful Web Application!</h2>
+<p>
+    <a href="index.html">Index</a>
+ 
+<form onsubmit="return false;">
+    <h3>SSE 聊天室：</h3>
+    <textarea id="response_text" style="width: 500px; height: 300px;"></textarea>
+    <br>
+    <input type="text" id="name_id"  style="width: 50px" placeholder="您的名字">
+    <input type="text" name="message"  style="width: 300px" value="Welcome to www.waylau.com">
+    <input type="button" value="发送消息" onclick="send(this.form.message.value)">
+    <input type="button" onclick="javascript:document.getElementById('response_text').value=''" value="清空聊天记录">
+</form>
+
+
+<p>
+    Visit <a href="www.waylau.com">www.waylau.com</a> for more information
+    on Jersey!
+</body>
+<script src="scripts/sse_real_time_broadcast.js"></script>
+</html>
