@@ -1,4 +1,4 @@
-﻿package com.waylau.zookeeper;
+﻿ 
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -16,9 +16,9 @@ import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.data.Stat;
 
 /**
- * ZooKeeper 实现 barrier 和 producer-consumer queue
+ * ZooKeeper 实现 barrier 和  producer-consumer queue
  * 
- * @author <a href="http://waylau.com">Way Lau</a> 
+ * @author <a href="https://waylau.com">Way Lau</a> 
  * @date 2016年10月6日
  */
 public class SyncPrimitive implements Watcher {
@@ -58,7 +58,7 @@ public class SyncPrimitive implements Watcher {
         String name;
 
         /**
-         * Barrier constructor
+         * Barrier 构造函数
          *
          * @param address
          * @param root
@@ -69,7 +69,7 @@ public class SyncPrimitive implements Watcher {
             this.root = root;
             this.size = size;
 
-            // Create barrier node
+            // 创建 barrier 节点
             if (zk != null) {
                 try {
                     Stat s = zk.exists(root, false);
@@ -86,23 +86,21 @@ public class SyncPrimitive implements Watcher {
                 }
             }
 
-            // My node name
+            // 节点名称
             try {
                 name = new String(InetAddress.getLocalHost().getCanonicalHostName().toString());
             } catch (UnknownHostException e) {
                 System.out.println(e.toString());
             }
-
         }
 
         /**
-         * Join barrier
+         * 加入 barrier
          *
          * @return
          * @throws KeeperException
          * @throws InterruptedException
          */
-
         boolean enter() throws KeeperException, InterruptedException{
             zk.create(root + "/" + name, new byte[0], Ids.OPEN_ACL_UNSAFE,
                     CreateMode.EPHEMERAL_SEQUENTIAL);
@@ -120,25 +118,24 @@ public class SyncPrimitive implements Watcher {
         }
 
         /**
-         * Wait until all reach barrier
+         * 等待所有到达的 barrier 
          *
          * @return
          * @throws KeeperException
          * @throws InterruptedException
          */
-
         boolean leave() throws KeeperException, InterruptedException{
             zk.delete(root + "/" + name, 0);
             while (true) {
                 synchronized (mutex) {
                     List<String> list = zk.getChildren(root, true);
-                        if (list.size() > 0) {
-                            mutex.wait();
-                        } else {
-                            return true;
-                        }
+                    if (list.size() > 0) {
+                        mutex.wait();
+                    } else {
+                        return true;
                     }
                 }
+            }
         }
     }
 
@@ -148,7 +145,7 @@ public class SyncPrimitive implements Watcher {
     static public class Queue extends SyncPrimitive {
 
         /**
-         * Constructor of producer-consumer queue
+         * producer-consumer queue 构造函数
          *
          * @param address
          * @param name
@@ -156,7 +153,7 @@ public class SyncPrimitive implements Watcher {
         Queue(String address, String name) {
             super(address);
             this.root = name;
-            // Create ZK node name
+            // 创建 ZooKeeper 节点名称
             if (zk != null) {
                 try {
                     Stat s = zk.exists(root, false);
@@ -175,17 +172,16 @@ public class SyncPrimitive implements Watcher {
         }
 
         /**
-         * Add element to the queue.
+         * 添加元素到  queue.
          *
          * @param i
          * @return
          */
-
         boolean produce(int i) throws KeeperException, InterruptedException{
             ByteBuffer b = ByteBuffer.allocate(4);
             byte[] value;
 
-            // Add child with value i
+            // 添加孩子
             b.putInt(i);
             value = b.array();
             zk.create(root + "/element", value, Ids.OPEN_ACL_UNSAFE,
@@ -196,7 +192,7 @@ public class SyncPrimitive implements Watcher {
 
 
         /**
-         * Remove first element from the queue.
+         * 移除 queue 中的第一个元素
          *
          * @return
          * @throws KeeperException
@@ -206,7 +202,7 @@ public class SyncPrimitive implements Watcher {
             int retvalue = -1;
             Stat stat = null;
 
-            // Get the first element available
+            // 获取存在的第一个元素
             while (true) {
                 synchronized (mutex) {
                     List<String> list = zk.getChildren(root, true);
@@ -287,10 +283,10 @@ public class SyncPrimitive implements Watcher {
 
         }
 
-        // Generate random integer
+        // 生成随机数
         Random rand = new Random();
         int r = rand.nextInt(100);
-        // Loop for rand iterations
+ 
         for (int i = 0; i < r; i++) {
             try {
                 Thread.sleep(100);
