@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 接收消息的工作者
  * 
- * @author <a href="http://waylau.com">Way Lau</a>
+ * @author <a href="https://waylau.com">Way Lau</a>
  * @date 2016年8月12日
  */
 public class Worker {

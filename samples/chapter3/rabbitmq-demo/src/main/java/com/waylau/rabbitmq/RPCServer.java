@@ -13,7 +13,7 @@ import com.rabbitmq.client.AMQP.BasicProperties;
 /**
  * RPC 服务器
  * 
- * @author <a href="http://waylau.com">Way Lau</a>
+ * @author <a href="https://waylau.com">Way Lau</a>
  * @date 2016年8月13日
  */
 public class RPCServer {

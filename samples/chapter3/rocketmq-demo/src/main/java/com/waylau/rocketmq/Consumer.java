@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 消费者，接收和处理消息
  * 
- * @author <a href="http://waylau.com">waylau.com</a>
+ * @author <a href="https://waylau.com">waylau.com</a>
  * @date 2016年8月18日
  */
 public class Consumer {

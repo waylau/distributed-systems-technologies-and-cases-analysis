@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 主应用入口
  * 
- * @author <a href="http://waylau.com">Way Lau</a> 
+ * @author <a href="https://waylau.com">Way Lau</a> 
  * @date 2016年8月18日
  */
 public class App {

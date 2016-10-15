@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 日志接收程序
  * 
- * @author <a href="http://waylau.com">waylau.com</a>
+ * @author <a href="https://waylau.com">waylau.com</a>
  * @date 2016年8月12日
  */
 public class ReceiveLogs {

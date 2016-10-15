@@ -11,7 +11,7 @@ import com.rabbitmq.client.MessageProperties;
 /**
  * 发送消息的任务发送程序
  * 
- * @author <a href="http://waylau.com">Way Lau</a>
+ * @author <a href="https://waylau.com">Way Lau</a>
  * @date 2016年8月12日
  */
 public class NewTask {

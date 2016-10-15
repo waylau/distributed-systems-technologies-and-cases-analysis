@@ -16,7 +16,7 @@ import com.rabbitmq.client.Envelope;
 /**
  * 日志接收程序
  * 
- * @author <a href="http://waylau.com">waylau.com</a>
+ * @author <a href="https://waylau.com">waylau.com</a>
  * @date 2016年8月13日
  */
 public class ReceiveLogsDirect {
