@@ -2,7 +2,6 @@
  * 
  */
 package com.waylau.essentialjava.iomode;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -10,7 +9,7 @@ import java.net.Socket;
 /**
  * “阻塞I/O+多线程”模式。使用多线程来支持多个客户端访问服务器
  * 
- * @author <a href="http://waylau.com">waylau.com</a>
+ * @author <a href="https://waylau.com">waylau.com</a>
  * @date 2016年7月29日
  */
 public class MultiThreadEchoServer {
@@ -30,7 +29,7 @@ public class MultiThreadEchoServer {
 			while (true) {
 				clientSocket = serverSocket.accept();
 
-				// MultiThread
+				// 多线程
 				new Thread(new EchoServerHandler(clientSocket)).start();
 			}
 		} catch (IOException e) {

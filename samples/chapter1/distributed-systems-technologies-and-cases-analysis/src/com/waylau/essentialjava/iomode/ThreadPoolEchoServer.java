@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.waylau.essentialjava.iomode;
 
 import java.io.IOException;
@@ -12,7 +9,7 @@ import java.util.concurrent.Executors;
 /**
  * “阻塞I/O+线程池”模式
  * 
- * @author <a href="http://waylau.com">waylau.com</a>
+ * @author <a href="https://waylau.com">waylau.com</a>
  * @date 2016年7月29日
  */
 public class ThreadPoolEchoServer {
@@ -34,7 +31,7 @@ public class ThreadPoolEchoServer {
             while (true) {
                 clientSocket = serverSocket.accept();
                 
-                // Thread Pool
+                // 线程池
                 threadPool.submit(new Thread(new EchoServerHandler(clientSocket)));
             }
         } catch (IOException e) {

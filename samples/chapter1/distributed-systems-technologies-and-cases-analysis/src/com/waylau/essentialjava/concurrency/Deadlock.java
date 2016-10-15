@@ -1,12 +1,9 @@
-/**
- * 
- */
 package com.waylau.essentialjava.concurrency;
 
 /**
  * 死锁
  * 
- * @author <a href="http://waylau.com">waylau.com</a>
+ * @author <a href="https://waylau.com">waylau.com</a>
  * @date 2016年7月29日
  */
 public class Deadlock {
