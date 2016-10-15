@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 /**
  * MQ 生产者
  * 
- * @author <a href="http://waylau.com">Way Lau</a> 
+ * @author <a href="https://waylau.com">Way Lau</a> 
  * @date 2016年8月7日
  */
 public class Producer {
