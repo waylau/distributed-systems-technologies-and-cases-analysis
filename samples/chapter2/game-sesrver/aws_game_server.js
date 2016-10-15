@@ -15,7 +15,7 @@ exports.handler = function (event, context) {
         MaxCount: 1
     };
 
-    // Create the instance
+    // 创建实例
     ec2.runInstances(params, function (err, data) {
         if (err) {
             console.log("Could not create instance", err);
@@ -24,7 +24,7 @@ exports.handler = function (event, context) {
         var instanceId = data.Instances[0].InstanceId;
         console.log("Created instance", instanceId);
 
-        //ToDo persistent instance id and set status as starting
+        //TODO（待完成）持久化示例 id 并设置状态为启动状态
         context.succeed(instanceId);
     });
 };
@@ -39,7 +39,7 @@ exports.handler = function (event, context) {
     var version = event.version;
     // ...
 
-    //TODO check instanceId and update instance status to online
+    //TODO（待完成）检测示例 id 并更新示例状态到线上
 };
 
 
@@ -54,22 +54,22 @@ exports.handler = function (event, context) {
     var instanceId = message.Trigger.Dimensions[0].value;
     console.log("Need to terminate the server:", instanceId);
 
-    //TODO check if instance can be terminated from DynamoDB and update instance as terminating
+    //TODO（待完成）检测实例是否可被从 DynamoDB 终止，而后更新示例为终止状态
     var params = {InstanceIds: [instanceId]};
 
-    //terminate the instance
+    //终止实例
     ec2.terminateInstances(params, function (err, data) {
         if (err) {
             console.log("Could not terminate instance", err);
 
-        //TODO rollback terminating the instance
+        //TODO 回滚终止实例
             context.fail(err);
         }
         for (var i in data.TerminatingInstances) {
             var instance = data.TerminatingInstances[i];
             console.log('TERM:\t' + instance.InstanceId);
 
-            //TODO delete terminated the instance
+            //TODO 删除终止的实例
         }
         context.succeed(data.TerminatingInstances);
     });
