@@ -11,7 +11,7 @@ import java.net.URI;
 import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
 
 /**
- * Main class.
+ * 主应用
  *
  */
 public class App {
@@ -19,7 +19,7 @@ public class App {
 	public static final String BASE_URI = "http://192.168.11.125:8081/";
 
 	/**
-	 * Main method.
+	 * Main 方法.
 	 * 
 	 * @param args
 	 * @throws IOException
