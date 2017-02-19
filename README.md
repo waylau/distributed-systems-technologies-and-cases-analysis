@@ -22,6 +22,7 @@
 
 本书涉及面相当之广，可以说涵盖了在设计分布式系统时，所要考虑的大部分问题及解决方案。
 
+![《分布式系统常用技术及案例分析》封面](https://cloud.githubusercontent.com/assets/3233966/23100754/bb13b9a2-f6c3-11e6-874c-7a2a0cb50958.jpg)
 ## 源代码
 
 本书提供源代码下载，地址位于[本项目](https://github.com/waylau/distributed-systems-technologies-and-cases-analysis)下的`samples`目录。
