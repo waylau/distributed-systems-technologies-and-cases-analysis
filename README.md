@@ -18,16 +18,18 @@
 * 第8章介绍RESTful API、微服务及容器相关的技术，着重介绍Jersey、Spring Boot、Docker等技术的应用。
 * 第9章和第10章分别介绍以淘宝网和Twitter为代表的国内外知名互联网企业的大型分布式系统案例，分析其架构设计以及演变过程。
 
-您可以查看详细的书籍[目录](SUMMARY.md)
+您可以查看详细的书籍[目录](SUMMARY.md)。
 
-本书涉及面相当之广，可以说涵盖了在设计分布式系统时，所要考虑的大部分问题。
+本书涉及面相当之广，可以说涵盖了在设计分布式系统时，所要考虑的大部分问题及解决方案。
 
 ## 源代码
 
-本书提供源代码下载，地址位于<https://github.com/waylau/distributed-systems-technologies-and-cases-analysis> 项目下的`samples`目录。
+本书提供源代码下载，地址位于[本项目](https://github.com/waylau/distributed-systems-technologies-and-cases-analysis)下的`samples`目录。
 
 ## 勘误和交流
-本书如有勘误，会在<https://github.com/waylau/distributed-systems-technologies-and-cases-analysis/issues>上进行发布。由于笔者能力有限，时间仓促，难免错漏，欢迎读者批评指正。读者也可以到博文视点官网的本书页面进行交流（www.broadview.com.cn/30771）。
+本书如有勘误，会在<https://github.com/waylau/distributed-systems-technologies-and-cases-analysis/issues>上进行发布。由于笔者能力有限，时间仓促，难免错漏，欢迎读者批评指正。
+
+读者也可以到博文视点官网的本书页面进行交流（www.broadview.com.cn/30771）。
 
 ## 联系作者
 
@@ -40,6 +42,6 @@
 
 ## 其他书籍
 
-若您对本书不感冒，作者还写了其他方面的超过一打的书籍（可见https://waylau.com/books/），多是开源电子书。
+若您对本书不感冒，笔者还写了其他方面的超过一打的书籍（可见<https://waylau.com/books/>），多是开源电子书。
 
-本人也维护了一个[books-collection](https://github.com/waylau/books-collection)，里面提供了优质的给程序员的开源、免费图书集合。
+本人也维护了一个[books-collection](https://github.com/waylau/books-collection)项目，里面提供了优质的专门给程序员的开源、免费图书集合。
