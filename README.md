@@ -48,6 +48,7 @@
 * 亚马逊：<https://www.amazon.cn/dp/B06X3RJMGC>
 * 当当网：<http://product.dangdang.com/24183821.html>
 * china-pub：<http://product.china-pub.com/5173118>
+* 豆瓣：<https://book.douban.com/subject/26975204/>
 
 ## 其他书籍
 
