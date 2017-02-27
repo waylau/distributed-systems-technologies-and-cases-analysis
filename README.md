@@ -41,6 +41,14 @@
 * 微博：http://weibo.com/waylau521
 * 开源：https://github.com/waylau
 
+## 获取本书
+
+实体店及部分网站有售：
+
+* 亚马逊：<https://www.amazon.cn/dp/B06X3RJMGC>
+* 当当网：<http://product.dangdang.com/24183821.html>
+* china-pub：<http://product.china-pub.com/5173118>
+
 ## 其他书籍
 
 若您对本书不感冒，笔者还写了其他方面的超过一打的书籍（可见<https://waylau.com/books/>），多是开源电子书。
