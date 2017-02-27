@@ -43,7 +43,7 @@
 
 ## 获取本书
 
-实体店及部分网站有售：
+实体店及部分网店有售：
 
 * 亚马逊：<https://www.amazon.cn/dp/B06X3RJMGC>
 * 当当网：<http://product.dangdang.com/24183821.html>
