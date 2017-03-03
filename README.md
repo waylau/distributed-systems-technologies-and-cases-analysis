@@ -32,6 +32,8 @@
 
 读者也可以到博文视点官网的本书页面进行交流（<http://www.broadview.com.cn/30771>）。
 
+您也可以上豆瓣（<https://book.douban.com/subject/26975204/>）进行评论。
+
 ## 联系作者
 
 您也可以直接联系我：
@@ -47,8 +49,9 @@
 
 * 亚马逊：<https://www.amazon.cn/dp/B06X3RJMGC>
 * 当当网：<http://product.dangdang.com/24183821.html>
+* 京东：<https://item.jd.com/12124492.html>
 * china-pub：<http://product.china-pub.com/5173118>
-* 豆瓣：<https://book.douban.com/subject/26975204/>
+
 
 ## 其他书籍
 
