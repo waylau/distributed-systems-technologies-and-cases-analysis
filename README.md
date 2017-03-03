@@ -58,3 +58,5 @@
 若您对本书不感冒，笔者还写了其他方面的超过一打的书籍（可见<https://waylau.com/books/>），多是开源电子书。
 
 本人也维护了一个[books-collection](https://github.com/waylau/books-collection)项目，里面提供了优质的专门给程序员的开源、免费图书集合。
+
+![开源捐赠](https://waylau.com/images/showmethemoney-sm.jpg)
