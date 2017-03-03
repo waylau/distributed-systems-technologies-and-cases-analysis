@@ -30,7 +30,7 @@
 ## 勘误和交流
 本书如有勘误，会在<https://github.com/waylau/distributed-systems-technologies-and-cases-analysis/issues>上进行发布。由于笔者能力有限，时间仓促，难免错漏，欢迎读者批评指正。
 
-读者也可以到博文视点官网的本书页面进行交流（www.broadview.com.cn/30771）。
+读者也可以到博文视点官网的本书页面进行交流（<http://www.broadview.com.cn/30771>）。
 
 ## 联系作者
 
