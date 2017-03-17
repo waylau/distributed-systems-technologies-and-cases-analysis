@@ -32,7 +32,7 @@
 
 读者也可以到博文视点官网的本书页面进行交流（<http://www.broadview.com.cn/30771>）。
 
-您也可以上豆瓣（<https://book.douban.com/subject/26975204/>）进行评论。
+您也可以上[豆瓣](https://book.douban.com/subject/26975204/)进行评论。
 
 ## 联系作者
 
@@ -47,11 +47,11 @@
 
 实体店及部分网店有售：
 
-* 亚马逊：<https://www.amazon.cn/dp/B06X3RJMGC>
-* 当当网：<http://product.dangdang.com/24183821.html>
-* 京东：<https://item.jd.com/12124492.html>
-* china-pub：<http://product.china-pub.com/5173118>
-
+* [亚马逊](https://www.amazon.cn/dp/B06X3RJMGC)
+* [当当](http://product.dangdang.com/24183821.html)
+* [京东](https://item.jd.com/12124492.html)
+* [china-pub](http://product.china-pub.com/5173118)
+* [淘宝](https://s.taobao.com/search?q=%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90)
 
 ## 其他书籍
 
