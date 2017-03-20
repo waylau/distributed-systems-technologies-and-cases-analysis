@@ -2,6 +2,12 @@
 
 我一直想写一本关于分布式系统方面的书。一方面是想把个人多年工作中涉及的分布式技术做一下总结，另一方面也想把个人的经验分享给广大的读者朋友。由于我的开发工作大都以Java为主，所以一开始的主题设想是“分布式Java”，书也以开源方式发布在互联网上（网址为<https://github.com/waylau/distributed-java>）。
 
+## 本书与开源的关系
+
+本书的大部分内容取材自我个人的博客以及个人编写的开源书（也算是为开源事业贡献微薄之力吧），不想看本书的也可以直接关注我博客（<https://waylau.com>）或者开源书（<https://waylau.com/books>）的内容。当然，博客相对来说比较零散，没有这本书来的严谨。
+
+详细的书的章节与开源的关系，可以对照[目录](SUMMARY.md)。
+
 当然，本书不单只是涉及Java领域中的分布式技术，主要内容如下。
 
 ## 内容介绍
@@ -28,6 +34,7 @@
 本书提供源代码下载，地址位于[本项目](https://github.com/waylau/distributed-systems-technologies-and-cases-analysis)下的`samples`目录。
 
 ## 勘误和交流
+
 本书如有勘误，会在<https://github.com/waylau/distributed-systems-technologies-and-cases-analysis/issues>上进行发布。由于笔者能力有限，时间仓促，难免错漏，欢迎读者批评指正。
 
 读者也可以到博文视点官网的本书页面进行交流（<http://www.broadview.com.cn/30771>）。
@@ -43,9 +50,9 @@
 * 微博：http://weibo.com/waylau521
 * 开源：https://github.com/waylau
 
-## 获取本书
+## 如何获取本书
 
-实体店及部分网店有售：
+实体店及部分网店有售，据我所知有如下网站供应：
 
 * [亚马逊](https://www.amazon.cn/dp/B06X3RJMGC)
 * [当当](http://product.dangdang.com/24183821.html)
@@ -53,10 +60,17 @@
 * [china-pub](http://product.china-pub.com/5173118)
 * [淘宝](https://s.taobao.com/search?q=%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90)
 
+也可以直接关注我博客（<https://waylau.com>）或者我的开源书（<https://waylau.com/books>）。
+
 ## 其他书籍
 
 若您对本书不感冒，笔者还写了其他方面的超过一打的书籍（可见<https://waylau.com/books/>），多是开源电子书。
 
 本人也维护了一个[books-collection](https://github.com/waylau/books-collection)项目，里面提供了优质的专门给程序员的开源、免费图书集合。
 
+## 开源捐赠
+
+
 ![开源捐赠](https://waylau.com/images/showmethemoney-sm.jpg)
+
+捐赠所得所有款项将用于开源事业！
