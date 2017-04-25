@@ -9,7 +9,7 @@
 	* 1.1 概述  -> [用大白话聊聊分布式系统](https://waylau.com/talk-about-distributed-system/)、[分布式 Java](https://github.com/waylau/distributed-java)
 	* 1.2 线程  -> [Java 编程要点](https://github.com/waylau/essential-java)
 	* 1.3 通信  -> [远程过程调用(RPC)详解](https://waylau.com/remote-procedure-calls/)、[TCP 协议的三次握手、四次分手](https://waylau.com/tcp-connect-and-close/)、[AS3使用thrift的与JHava servlet服务器端通信](https://waylau.com/as3-using-thrift-and-java-servlet-server-side-communication/)
-	* 1.4 一致性
+	* 1.4 一致性 -> [分布式系统常见的事务处理机制](https://waylau.com/distributed-system-transaction/)
 	* 1.5 容错性
 	* 1.6 CAP 理论 -> [浅谈 CAP 理论](https://waylau.com/cap-theorem/)
 	* 1.7 安全性  ->  [校园网信息网络安全问题以及对策综述](https://waylau.com/campus-network-security-problems-and-countermeasures/)
