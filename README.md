@@ -29,9 +29,15 @@
 本书涉及面相当之广，可以说涵盖了在设计分布式系统时，所要考虑的大部分问题及解决方案。
 
 ![《分布式系统常用技术及案例分析》封面](https://cloud.githubusercontent.com/assets/3233966/23100754/bb13b9a2-f6c3-11e6-874c-7a2a0cb50958.jpg)
+
 ## 源代码
 
 本书提供源代码下载，地址位于[本项目](https://github.com/waylau/distributed-systems-technologies-and-cases-analysis)下的`samples`目录。
+
+## 分支说明
+
+<https://github.com/waylau/distributed-systems-technologies-and-cases-analysis/tree/1.0.x> 这个分支，是2017年2月第1版
+<https://github.com/waylau/distributed-systems-technologies-and-cases-analysis/tree/2.0.x> 这个分支，是第2版
 
 ## 勘误和交流
 
@@ -54,11 +60,11 @@
 
 实体店及部分网店有售，据我所知有如下网站供应：
 
-* [亚马逊](https://www.amazon.cn/dp/B06X3RJMGC)
-* [当当](http://product.dangdang.com/24183821.html)
 * [京东](https://item.jd.com/12124492.html)
-* [china-pub](http://product.china-pub.com/5173118)
+* [当当](http://product.dangdang.com/24183821.html)
 * [淘宝](https://s.taobao.com/search?q=%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90)
+* [china-pub](http://product.china-pub.com/5173118)
+* [亚马逊](https://www.amazon.cn/dp/B06X3RJMGC)
 
 也可以直接关注我博客（<https://waylau.com>）或者我的开源书（<https://waylau.com/books>）。
 
