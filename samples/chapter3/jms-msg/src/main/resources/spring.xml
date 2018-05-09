@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 定义 bean -->
+	<!-- 配置JMS连接工厂 -->
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="failover:(tcp://localhost:61616)" />
+	</bean>
+
+	<!-- 定义消息队列（Queue） -->
+	<bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
+		<!-- 设置消息队列的名字 -->
+		<constructor-arg>
+			<value>queue1</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- 配置JMS模板（Queue），Spring提供的JMS工具类，它发送、接收消息。 -->
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="defaultDestination" ref="queueDestination" />
+		<property name="receiveTimeout" value="10000" />
+	</bean>
+
+	<!--queue消息生产者 -->
+	<bean id="producerService" class="com.waylau.spring.jms.queue.ProducerServiceImpl">
+		<property name="jmsTemplate" ref="jmsTemplate"></property>
+	</bean>
+
+	<!--queue消息消费者 -->
+	<bean id="consumerService" class="com.waylau.spring.jms.queue.ConsumerServiceImpl">
+		<property name="jmsTemplate" ref="jmsTemplate"></property>
+	</bean>
+
+	<!-- 定义消息队列（Queue） -->
+	<bean id="queueDestination2" class="org.apache.activemq.command.ActiveMQQueue">
+		<!-- 设置消息队列的名字 -->
+		<constructor-arg>
+			<value>queue2</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- 消息队列监听者（Queue） -->
+	<bean id="queueMessageListener" class="com.waylau.spring.jms.queue.QueueMessageListener" />
+
+	<!-- 消息监听容器（Queue） -->
+	<bean id="jmsContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="queueDestination2" />
+		<property name="messageListener" ref="queueMessageListener" />
+	</bean>
+
+	<!-- 定义消息主题（Topic） -->
+	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg>
+			<value>guo_topic</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- 配置JMS模板（Topic） -->
+	<bean id="topicJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="defaultDestination" ref="topicDestination" />
+		<property name="pubSubDomain" value="true" />
+		<property name="receiveTimeout" value="10000" />
+	</bean>
+
+	<!--topic消息发布者 -->
+	<bean id="topicProvider" class="com.waylau.spring.jms.topic.TopicProvider">
+		<property name="topicJmsTemplate" ref="topicJmsTemplate"></property>
+	</bean>
+
+	<!-- 消息主题监听者(Topic) -->
+	<bean id="topicMessageListener" class="com.waylau.spring.jms.topic.TopicMessageListener" />
+
+	<!-- 消息主题监听者(Topic) -->
+	<bean id="topicMessageListener2" class="com.waylau.spring.jms.topic.TopicMessageListener2" />
+
+	<!-- 主题监听容器 （Topic） -->
+	<bean id="topicJmsContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="topicDestination" />
+		<property name="messageListener" ref="topicMessageListener" />
+	</bean>
+
+	<!-- 主题监听容器 （Topic） -->
+	<bean id="topicJmsContainer2"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="topicDestination" />
+		<property name="messageListener" ref="topicMessageListener2" />
+	</bean>
+
+	<!--这个是sessionAwareQueue目的地 -->
+	<bean id="sessionAwareQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg>
+			<value>sessionAwareQueue</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- 可以获取session的MessageListener -->
+	<bean id="consumerSessionAwareMessageListener"
+		class="com.waylau.spring.jms.queue.ConsumerSessionAwareMessageListener">
+		<property name="destination" ref="queueDestination" />
+	</bean>
+
+	<!-- 监听sessionAwareQueue 队列的消息，把回复消息写入 queueDestination指向队列，即queue1 -->
+	<bean id="sessionAwareListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="sessionAwareQueue" />
+		<property name="messageListener" ref="consumerSessionAwareMessageListener" />
+	</bean>
+
+	<!--这个是adapterQueue目的地 -->
+	<bean id="adapterQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg>
+			<value>adapterQueue</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- 消息监听适配器 -->
+	<bean id="messageListenerAdapter"
+		class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<property name="delegate">
+			<bean class="com.waylau.spring.jms.queue.ConsumerListener" />
+		</property>
+		<property name="defaultListenerMethod" value="receiveMessage" />
+	</bean>
+
+	<!-- 消息监听适配器对应的监听容器 -->
+	<bean id="messageListenerAdapterContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="adapterQueue" />
+		<!-- 使用MessageListenerAdapter来作为消息监听器 -->
+		<property name="messageListener" ref="messageListenerAdapter" />
+	</bean>
+
+</beans>
