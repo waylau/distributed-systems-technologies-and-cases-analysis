@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.waylau.spark</groupId>
+	<artifactId>spark-word-count</artifactId>
+	<version>1.0.0</version>
+	<name>spark-word-count</name>
+	<packaging>jar</packaging>
+	<organization>
+		<name>waylau.com</name>
+		<url>https://waylau.com</url>
+	</organization>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spark.version>2.3.0</spark.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+		    <groupId>org.apache.spark</groupId>
+		    <artifactId>spark-core_2.11</artifactId>
+		    <version>${spark.version}</version>
+		</dependency>
+		<dependency>
+		<groupId>org.apache.spark</groupId>
+		    <artifactId>spark-sql_2.11</artifactId>
+		    <version>${spark.version}</version>
+		</dependency>
+	</dependencies>
+</project>
