@@ -1,0 +1,60 @@
+// buildscript 代码块中脚本优先执行
+buildscript {
+
+	// ext 用于定义动态属性
+	ext {
+		springBootVersion = '2.0.2.RELEASE'
+	}
+
+	// 使用了Maven的中央仓库及Spring自己的仓库（也可以指定其他仓库）
+	repositories {
+		//mavenCentral()
+		maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+	}
+
+	// 依赖关系
+	dependencies {
+
+		// classpath 声明了在执行其余的脚本时，ClassLoader 可以使用这些依赖项
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+		classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.17.2')
+	}
+}
+
+// 使用插件
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+apply plugin: 'com.palantir.docker'
+
+// 指定了生成的编译文件的版本，默认是打成了 jar 包
+group = 'com.waylau.spring.cloud'
+version = '1.0.0'
+
+// 指定编译 .java 文件的 JDK 版本
+sourceCompatibility = 1.8
+
+docker {
+    name "${project.group}/${jar.baseName}"
+    files jar.archivePath
+    buildArgs(['JAR_FILE': "${jar.archiveName}"])
+}
+
+// 使用了Maven的中央仓库及Spring自己的仓库（也可以指定其他仓库）
+repositories {
+	//mavenCentral()
+	maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+}
+
+// 依赖关系
+dependencies {
+
+	// 该依赖用于编译阶段
+	compile('org.springframework.boot:spring-boot-starter-web')
+
+	// 该依赖用于测试阶段
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
