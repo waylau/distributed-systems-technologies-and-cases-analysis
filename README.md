@@ -56,7 +56,7 @@
 
 读者也可以到博文视点官网的本书页面进行交流（<http://www.broadview.com.cn/30771>）。
 
-您也可以上[豆瓣](https://book.douban.com/subject/26975204/)进行评论。
+您也可以上[豆瓣](https://book.douban.com/subject/26975204/)给老卫打Call。
 
 ## 联系作者
 
