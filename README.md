@@ -77,7 +77,13 @@
 * [china-pub](http://search.china-pub.com/s/?key1=%c1%f8%ce%b0%ce%c0+%b7%d6%b2%bc%ca%bd%cf%b5%cd%b3%b3%a3%d3%c3%bc%bc%ca%f5%bc%b0%b0%b8%c0%fd%b7%d6%ce%f6%a3%a8%b5%da2%b0%e6%a3%a9&type=&pz=1)
 * [亚马逊](https://www.amazon.cn/s/ref=nb_sb_noss?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&url=search-alias%3Daps&field-keywords=%E6%9F%B3%E4%BC%9F%E5%8D%AB+%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90%EF%BC%88%E7%AC%AC2%E7%89%88%EF%BC%89C)
 
-也可以直接关注我博客（<https://waylau.com>）或者我的开源书（<https://waylau.com/books>）。
+
+想低于市价得到本书？来[二手书集市](https://github.com/waylau/second-hand-books)试试看。
+
+
+也可以直接关注我博客（<https://waylau.com/>）或者我的开源书（<https://waylau.com/books/>）了解更多免费咨询。
+
+
 
 ## 其他书籍
 
